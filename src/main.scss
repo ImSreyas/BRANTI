@@ -1,0 +1,44 @@
+@mixin background-interface-icon($url: "", $size: 1rem, $fit: cover) {
+  width: $size;
+  aspect-ratio: $size/$size;
+  background-image: url($url);
+  background-size: $fit;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html {
+  font-size: 18px;
+}
+* {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgb(0, 0, 0);
+}
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+body {
+  min-height: 100vh;
+  background-color: rgb(255, 255, 255);
+
+  .main-body {
+    padding: 0.5rem 5vw;
+  }
+}
+::placeholder{
+  color: rgb(190, 190, 190);
+}
