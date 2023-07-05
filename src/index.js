@@ -3,9 +3,12 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
+import navOptionSlice from "./store/navOptionSlice";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    navOptionSlice
+  },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

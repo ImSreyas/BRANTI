@@ -17,28 +17,34 @@ html {
 }
 * {
   font-family: "Manrope", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   color: rgb(0, 0, 0);
 }
-button {
-  outline: none;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
 
 body {
   min-height: 100vh;
+  max-width: 1800px;
   background-color: rgb(255, 255, 255);
 
   .main-body {
-    padding: 0.5rem 5vw;
+    padding: 0.5rem 4rem;
+  }
+  button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .unselectable{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; // normal syntax
   }
 }
-::placeholder{
+::placeholder {
   color: rgb(190, 190, 190);
 }
