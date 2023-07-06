@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { disable } from "../../store/navOptionSlice"
+import { disable } from "../../../store/navOptionSlice"
 
 const Search = () => {
   const dispatch = useDispatch();

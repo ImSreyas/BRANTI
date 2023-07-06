@@ -1,16 +1,16 @@
 import "./Layout.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import CustomerLayout from "./components/nav/CustomerLayout";
-import Home from "./pages/Home";
-import Category from "./pages/Category";
-import Trending from "./pages/Trending";
-import Notification from "./pages/Notification";
-import WishList from "./pages/WishList";
-import Cart from "./pages/Cart";
-import Profile from "./pages/Profile";
-import CustomerLogin from "./pages/CustomerLogin";
-import Offers from "./pages/Offers";
-import SellerLogin from "./pages/SellerLogin";
+import CustomerLayout from "./pages/customer/components/layout/CustomerLayout"
+import Home from "./pages/customer/Home";
+import Category from "./pages/customer/Category";
+import Trending from "./pages/customer/Trending";
+import Notification from "./pages/customer/Notification";
+import WishList from "./pages/customer/WishList";
+import Cart from "./pages/customer/Cart";
+import Profile from "./pages/customer/Profile";
+import CustomerLogin from "./pages/customer/CustomerLogin";
+import Offers from "./pages/customer/Offers";
+import SellerLogin from "./pages/seller/SellerLogin";
 
 function App() {
   const router = createBrowserRouter([

@@ -1,15 +1,16 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import CustomerNav from "./CustomerNav";
+import CustomerNav from "../global/CustomerNav";
+import OptionCloser from "../../../global/OptionCloser";
+import Footer from "../global/CustomerFooter"
 
 const CustomerLayout = () => {
   return (
     <>
       <CustomerNav />
       <Outlet />
-      <footer>
-        
-      </footer>
+      <Footer />
+      <OptionCloser />
     </>
   );
 };
