@@ -1,0 +1,18 @@
+@mixin background-interface-icon($url: "", $size: 1rem, $fit: cover) {
+  width: $size;
+  aspect-ratio: $size/$size;
+  background-image: url($url);
+  background-size: $fit;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin unselectable {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; // normal syntax
+}

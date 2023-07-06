@@ -1,0 +1,18 @@
+@import "../../../../../library.scss";
+
+.customer-footer {
+  height: 25rem;
+  padding: 2rem 4rem;
+  color: white;
+  background-color: rgb(0, 0, 0);
+
+  .customer-footer-upper {
+    @include flex-center;
+    padding-block-end: 2rem;
+    color: white;
+    width: 100%;
+    border-block-end: 2px solid rgb(35, 35, 35);
+  }
+  .customer-footer-lower {
+  }
+}

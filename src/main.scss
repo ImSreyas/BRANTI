@@ -1,17 +1,3 @@
-@mixin background-interface-icon($url: "", $size: 1rem, $fit: cover) {
-  width: $size;
-  aspect-ratio: $size/$size;
-  background-image: url($url);
-  background-size: $fit;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 html {
   font-size: 18px;
 }
@@ -26,11 +12,11 @@ html {
 }
 
 body {
-  min-height: 100vh;
   max-width: 1800px;
   background-color: rgb(255, 255, 255);
-
+  
   .main-body {
+    min-height: 80vh;
     padding: 0.5rem 4rem;
   }
   button {

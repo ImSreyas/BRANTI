@@ -1,16 +1,9 @@
 import React from "react";
 import { Form } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { disable } from "../../../store/navOptionSlice"
 
 const Search = () => {
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(disable());
-  };
-
   return (
-    <div className="search-container" onClick={handleClick}>
+    <div className="search-container">
       <Form method="get" className="search-form" action=".">
         <input
           type="text"

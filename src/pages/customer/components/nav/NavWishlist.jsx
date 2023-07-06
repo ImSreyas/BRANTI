@@ -1,14 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { disable } from "../../store/navOptionSlice"
 
-const NavWishlist = ({ onClick }) => {
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(disable());
-  };
-
+const NavWishlist = () => {
   return (
     <NavLink
       to="wishlist"
@@ -17,7 +10,6 @@ const NavWishlist = ({ onClick }) => {
           ? "active nav-icon wishlist-icon"
           : "nav-icon wishlist-icon";
       }}
-      onClick={handleClick}
     ></NavLink>
   );
 };

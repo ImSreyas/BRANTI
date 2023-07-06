@@ -1,8 +1,12 @@
 import React from 'react'
+import "./scss/customer-footer.scss";
 
 const CustomerFooter = () => {
   return (
-    <div>CustomerFooter</div>
+    <div className='customer-footer'>
+      <div className='customer-footer-upper'>&copy;2023 all rights reserved.</div>
+      <div className='customer-footer-lower'></div>
+    </div>
   )
 }
 

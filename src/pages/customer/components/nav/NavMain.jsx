@@ -1,20 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { disable } from "../../store/navOptionSlice";
 
 const NavMain = () => {
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(disable());
-  };
-
   return (
     <>
-      <NavLink to="." className="nav-links" onClick={handleClick}>
+      <NavLink to="." className="nav-links">
         Home
       </NavLink>
-      <NavLink to="category" className="nav-links" onClick={handleClick}>
+      <NavLink to="category" className="nav-links">
         Category
       </NavLink>
       <NavLink
@@ -22,7 +15,6 @@ const NavMain = () => {
         className={({ isActive }) => {
           return isActive ? "active nav-links" : "nav-links";
         }}
-        onClick={handleClick}
       >
         Trending
       </NavLink>

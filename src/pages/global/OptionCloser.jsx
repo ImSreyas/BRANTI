@@ -1,4 +1,5 @@
 import React from "react";
+import "./scss/option-closer.scss"
 import { useSelector, useDispatch } from "react-redux";
 import { disable } from "../../store/navOptionSlice";
 
@@ -12,7 +13,7 @@ const OptionCloser = () => {
   return (
     <div
       className={
-        isActive ? "active global-option-closer" : "global-option-closer"
+        isActive ? "active option-closer" : "option-closer"
       }
       onClick={handleClick}
     ></div>

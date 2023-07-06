@@ -1,0 +1,13 @@
+.option-closer{
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent !important;
+    z-index: 10;
+    display: none;
+
+    &.active{
+        display: block;
+    }
+}

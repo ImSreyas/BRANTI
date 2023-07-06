@@ -1,4 +1,4 @@
-import "./Layout.scss";
+import "./main.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CustomerLayout from "./pages/customer/components/layout/CustomerLayout"
 import Home from "./pages/customer/Home";

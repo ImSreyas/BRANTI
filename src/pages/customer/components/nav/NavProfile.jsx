@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import MoreOptions from "./MoreOptions";
 import { useSelector, useDispatch } from "react-redux";
-import { change } from "../../store/navOptionSlice";
+import { change } from "../../../../store/navOptionSlice";
 
 const NavProfile = () => {
   const moreOptionsBtn = useSelector((state) => state.navOptionSlice);
