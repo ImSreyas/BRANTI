@@ -21,7 +21,7 @@ nav {
       font-family: "Unica One", cursive;
       font-family: "Cinzel Decorative", cursive;
       font-weight: 400;
-      font-size: 2rem;
+      font-size: 1.8rem;
 
       cursor: pointer;
       @include unselectable;
@@ -70,6 +70,12 @@ nav {
       cursor: pointer;
       color: rgb(130, 130, 130);
       font-weight: 600;
+
+      &.login-btn{
+        border-radius: .7rem;
+        border: 2px solid rgb(235, 235, 235);
+        padding: .3rem 1.2rem;
+      }
     }
     > .nav-links.active {
       color: black;

@@ -9,6 +9,7 @@ const MoreOptions = () => {
   const handleOptionClick = () => {
     dispatch(change());
   };
+  const user = useSelector((state) => state.userSlice);
 
   return (
     <div
@@ -18,18 +19,15 @@ const MoreOptions = () => {
           : "more-options-container"
       }
     >
-      <NavLink
-        to="login"
-        onClick={handleOptionClick}
-        className={({ isActive }) => {
-          return isActive
-            ? "active option-btn unselectable"
-            : "option-btn unselectable";
-        }}
-      >
-        Login
-      </NavLink>
-      <div className="devider"></div>
+      {user == {}
+        ? [
+          <>
+            <button className="option-btn unselectable">Logout</button>
+            <div className="devider"></div>
+          </>
+          ]
+        : null}
+
       <NavLink
         to="orders"
         onClick={handleOptionClick}

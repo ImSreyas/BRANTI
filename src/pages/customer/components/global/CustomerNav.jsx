@@ -7,9 +7,11 @@ import NavNotification from "../nav/NavNotification";
 import NavWishlist from "../nav/NavWishlist";
 import NavCart from "../nav/NavCart";
 import NavProfile from "../nav/NavProfile";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 const CustomerNav = () => {
-  
+  const user = useSelector((state) => state.userSlice);
 
   return (
     <nav>
@@ -19,9 +21,22 @@ const CustomerNav = () => {
       </div>
       <div className="navigation-container">
         <NavMain />
-        <NavWishlist />
-        <NavCart />
-        <NavNotification />
+        {user == {} ? (
+          <>
+            <NavWishlist />
+            <NavCart />
+            <NavNotification />
+          </>
+        ) : (
+          <NavLink
+            to="login"
+            className={({ isActive }) => {
+              return isActive ? "active nav-links login-btn" : "nav-links login-btn";
+            }}
+          >
+            login
+          </NavLink>
+        )}
         <NavProfile />
       </div>
     </nav>

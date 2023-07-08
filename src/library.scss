@@ -1,4 +1,4 @@
-@mixin background-interface-icon($url: "", $size: 1rem, $fit: cover) {
+@mixin background-interface-icon($url: "", $size: 1rem, $fit: contain) {
   width: $size;
   aspect-ratio: $size/$size;
   background-image: url($url);
