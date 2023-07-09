@@ -21,7 +21,7 @@ const CustomerNav = () => {
       </div>
       <div className="navigation-container">
         <NavMain />
-        {user == {} ? (
+        {Object.keys(user).length != 0 ? (
           <>
             <NavWishlist />
             <NavCart />

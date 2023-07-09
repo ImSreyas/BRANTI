@@ -1,3 +1,10 @@
+$text-color: black;
+$text-color-dim: rgb(150, 150, 150);
+$text-color-super-dim: rgb(180, 180, 180);
+$background-color: white;
+$border-color: rgb(225, 225, 225);
+$border-color-lighter: rgb(235, 235, 235);
+
 @mixin background-interface-icon($url: "", $size: 1rem, $fit: contain) {
   width: $size;
   aspect-ratio: $size/$size;

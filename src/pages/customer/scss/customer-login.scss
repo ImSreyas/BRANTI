@@ -16,46 +16,88 @@
       object-fit: contain;
     }
   }
-  .devider {
-    height: 60%;
-    width: fit-content;
-    border-inline-start: 2px solid rgb(238, 238, 238);
-  }
+  //   .devider {
+  //     height: 60%;
+  //     width: fit-content;
+  //     border-inline-start: 2px solid rgb(238, 238, 238);
+  //   }
   .login-container {
     height: fit-content;
     border-radius: 2rem;
     // border: 2px solid rgb(220, 220, 220);
-    padding: 1.5rem 5rem;
+    padding: 2.5rem 5rem;
     width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 5rem rgb(225, 225, 225);
 
     .login-form {
-      label {
-        display: block;
-        padding: 0 .5rem.2rem .5rem;
-      }
-      input {
-        font-size: 0.9rem;
-        width: 100%;
-        padding: 1rem 1.2rem;
-        border-radius: 1rem;
+      .username-wrapper,
+      .password-wrapper {
+        position: relative;
         margin-bottom: 1.4rem;
-        border: 2px solid rgb(216, 216, 216);
+
+        .icon {
+          position: absolute;
+          top: 50%;
+          left: 1rem;
+          transform: translateY(-50%);
+          &.username {
+            @include background-interface-icon(
+              "../../../../public/icons/email.svg",
+              1rem
+            );
+          }
+          &.password {
+            @include background-interface-icon(
+              "../../../../public/icons/password.svg",
+              1rem
+            );
+          }
+        }
+        label {
+          display: block;
+          padding: 0 0.5rem.2rem 0.5rem;
+          font-size: 0.9rem;
+        }
+        input {
+          font-size: 0.9rem;
+          width: 100%;
+          padding-inline: 3rem 1.2rem;
+          padding-block: .9rem;
+          border-radius: 1rem;
+          border: 2px solid $border-color;
+        }
       }
-      button.submit {
-        width: 100%;
-        padding: 1rem;
-        margin-block-start: .5rem;
-        font-size: 0.9rem;
-        font-weight: 600;
-        background-color: black;
-        color: white;
-        border-radius: 1rem;
+      button{
+        &.remember-me-btn{
+          padding: .2rem .8rem;
+          border: 2px solid $border-color-lighter;
+          border-radius: .5rem;
+          font-weight: 600;
+          color: $text-color-super-dim;
+          transition: all 200ms ease-in-out;
+
+          &.active{
+            color: $text-color;
+          }
+        }
+        &.submit {
+          width: 100%;
+          padding: 0.9rem 1rem;
+          margin-block-start: 0.5rem;
+          font-size: 0.9rem;
+          font-weight: 600;
+          background-color: black;
+          color: white;
+          border-radius: 1rem;
+        }
+
       }
     }
   }
   .divider {
     width: 100%;
-    border-block-start: 2px solid rgb(236, 236, 236);
+    border-block-start: 2px solid $border-color-lighter;
     position: relative;
     margin-block: 2rem;
 
@@ -64,19 +106,20 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -55%);
-      background-color: white;
+      background-color: $background-color;
       padding-inline: 1rem;
     }
   }
   .other-login-methods {
     .google-login-btn {
       width: 100%;
-      padding: 1rem;
+      padding: 0.8rem 1rem;
       border-radius: 1rem;
       text-align: center;
-      border: 2px solid rgb(213, 213, 213);
+      border: 2px solid $border-color;
       font-size: 0.9rem;
       font-weight: 600;
+      background-color: $background-color;
       @include flex-center;
 
       div {

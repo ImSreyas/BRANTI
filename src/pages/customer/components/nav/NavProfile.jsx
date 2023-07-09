@@ -8,12 +8,15 @@ const NavProfile = () => {
   const moreOptionsBtn = useSelector((state) => state.navOptionSlice);
   const dispatch = useDispatch();
   const handleOptionClick = () => {
-    dispatch(change())
-  }
+    dispatch(change());
+  };
+  const user = useSelector((state) => state.userSlice);
 
   return (
     <div className="nav-icon profile-icon-container">
-      <NavLink to="profile" className="profile-icon"></NavLink>
+      <NavLink to="profile" className="profile-icon">
+        {user.img ? <img src={user.img} /> : <img src="/icons/user.svg" />}
+      </NavLink>
       <div
         onClick={handleOptionClick}
         className={

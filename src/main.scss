@@ -1,3 +1,4 @@
+@import "library.scss";
 html {
   font-size: 18px;
 }
@@ -8,13 +9,13 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: rgb(0, 0, 0);
 }
 
 body {
   max-width: 1800px;
-  background-color: rgb(255, 255, 255);
-  
+  background-color: $background-color;
+  color: $text-color;
+
   .main-body {
     min-height: 80vh;
     padding: 0.5rem 4rem 2rem;
@@ -25,7 +26,7 @@ body {
     background-color: transparent;
     cursor: pointer;
   }
-  .unselectable{
+  .unselectable {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; // normal syntax
