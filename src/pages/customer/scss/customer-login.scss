@@ -31,10 +31,15 @@
     box-shadow: 0 0 5rem rgb(225, 225, 225);
 
     .login-form {
+      .username-wrapper {
+        margin-block-end: 1.4rem;
+      }
+      // .password-wrapper{
+      //   margin-block-end: .5rem;
+      // }
       .username-wrapper,
       .password-wrapper {
         position: relative;
-        margin-bottom: 1.4rem;
 
         .icon {
           position: absolute;
@@ -63,21 +68,23 @@
           font-size: 0.9rem;
           width: 100%;
           padding-inline: 3rem 1.2rem;
-          padding-block: .9rem;
+          padding-block: 0.9rem;
           border-radius: 1rem;
           border: 2px solid $border-color;
         }
       }
-      button{
-        &.remember-me-btn{
-          padding: .2rem .8rem;
+      button {
+        &.remember-me-btn {
+          padding: 0.25rem 0.8rem;
           border: 2px solid $border-color-lighter;
-          border-radius: .5rem;
+          border-radius: 100rem;
           font-weight: 600;
           color: $text-color-super-dim;
           transition: all 200ms ease-in-out;
+          margin-block: 1rem 0.6rem;
+          margin-inline-start: 0.2rem;
 
-          &.active{
+          &.active {
             color: $text-color;
           }
         }
@@ -90,8 +97,11 @@
           background-color: black;
           color: white;
           border-radius: 1rem;
-        }
 
+          &:active {
+            background-color: rgb(34, 34, 34);
+          }
+        }
       }
     }
   }

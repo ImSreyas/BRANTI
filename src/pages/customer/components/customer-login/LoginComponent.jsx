@@ -1,33 +1,52 @@
 import React from "react";
-import { Form } from "react-router-dom";
+import { Form, Navigate, redirect, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../../firebase.config.js";
-import { setUser, setUserAuth } from "../../../../store/userSlice.js";
+import {
+  setUserTemp,
+  setUserPermanent,
+} from "../../../../store/customerSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const currentUser = useSelector((state) => state.userSlice);
+  const customer = useSelector((state) => state.customer.value);
   const dispatch = useDispatch();
+  const [isLogedin, setIsLogedin] = useState(false);
 
   const create = async () => {
     try {
       const user = await signInWithEmailAndPassword(auth, username, password);
       // console.log(typeof(auth.currentUser));
       if (rememberMe) {
-        dispatch(setUser(auth.currentUser));
+        dispatch(
+          setUserPermanent({
+            uid: auth.currentUser.uid,
+            email: auth.currentUser.email,
+            displayName: auth.currentUser.displayName,
+            photoURL: auth.currentUser.photoURL,
+          })
+        );
       } else {
-        dispatch(setUserAuth(auth.currentUser));
+        dispatch(
+          setUserTemp({
+            uid: auth.currentUser.uid,
+            email: auth.currentUser.email,
+            displayName: auth.currentUser.displayName,
+            photoURL: auth.currentUser.photoURL,
+          })
+        );
       }
+      setIsLogedin(true);
     } catch (error) {
       console.log(error.code);
     }
   };
-  console.log(currentUser);
 
+  if (isLogedin) return <Navigate to="/" />;
   return (
     <div className="login-container">
       <Form className="login-form">
@@ -35,7 +54,7 @@ const LoginComponent = () => {
         <div className="username-wrapper">
           <div className="icon username"></div>
           <input
-            type="email"
+            type="text"
             className="username"
             placeholder="username"
             value={username}

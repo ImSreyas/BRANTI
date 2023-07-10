@@ -4,12 +4,12 @@ import App from "./App";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import navOptionSlice from "./store/navOptionSlice";
-import userSlice from "./store/userSlice";
+import customer from "./store/customerSlice";
 
 const store = configureStore({
   reducer: {
     navOptionSlice,
-    userSlice
+    customer
   },
 });
 

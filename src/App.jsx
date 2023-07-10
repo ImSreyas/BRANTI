@@ -11,6 +11,7 @@ import Profile from "./pages/customer/Profile";
 import CustomerLogin from "./pages/customer/CustomerLogin";
 import Offers from "./pages/customer/Offers";
 import SellerLogin from "./pages/seller/SellerLogin";
+import { loader } from "./pages/customer/CustomerLogin";
 
 function App() {
   const router = createBrowserRouter([
@@ -49,6 +50,7 @@ function App() {
         {
           path: "login",
           element: <CustomerLogin />,
+          loader
         },
         {
           path: "offers",

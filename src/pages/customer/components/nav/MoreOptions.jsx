@@ -2,24 +2,24 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { change } from "../../../../store/navOptionSlice";
-import { unsetUser } from "../../../../store/userSlice";
+import { unsetUser } from "../../../../store/customerSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../../firebase.config";
 
 const MoreOptions = () => {
   const moreOptionsBtn = useSelector((state) => state.navOptionSlice);
-  const user = useSelector((state) => state.userSlice);
+  const user = useSelector((state) => state.customer.value);
   const dispatch = useDispatch();
 
   const handleOptionClick = () => {
     dispatch(change());
   };
   const logout = async () => {
-    try{
-      await signOut(auth)
-      console.log("signed out succesfully")
-    } catch(err) {
-      console.log(err)
+    try {
+      await signOut(auth);
+      console.log("signed out succesfully");
+    } catch (err) {
+      console.log(err);
     }
     dispatch(unsetUser());
     dispatch(change());

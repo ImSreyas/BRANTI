@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const CustomerNav = () => {
-  const user = useSelector((state) => state.userSlice);
+  const customer = useSelector((state) => state.customer.value);
 
   return (
     <nav>
@@ -21,7 +21,7 @@ const CustomerNav = () => {
       </div>
       <div className="navigation-container">
         <NavMain />
-        {Object.keys(user).length != 0 ? (
+        {Object.keys(customer).length != 0 ? (
           <>
             <NavWishlist />
             <NavCart />
@@ -31,7 +31,9 @@ const CustomerNav = () => {
           <NavLink
             to="login"
             className={({ isActive }) => {
-              return isActive ? "active nav-links login-btn" : "nav-links login-btn";
+              return isActive
+                ? "active nav-links login-btn"
+                : "nav-links login-btn";
             }}
           >
             login

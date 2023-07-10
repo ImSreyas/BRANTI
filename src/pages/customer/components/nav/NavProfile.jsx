@@ -10,7 +10,7 @@ const NavProfile = () => {
   const handleOptionClick = () => {
     dispatch(change());
   };
-  const user = useSelector((state) => state.userSlice);
+  const user = useSelector((state) => state.customer.value);
 
   return (
     <div className="nav-icon profile-icon-container">
