@@ -17,12 +17,12 @@ const LoginComponent = () => {
   const dispatch = useDispatch();
   const [isLogedin, setIsLogedin] = useState(false);
   const [isloader, setIsLoader] = useState(false);
+  const [error, setError] = useState(["", ""]);
 
   const create = async () => {
     try {
       setIsLoader(true);
       const user = await signInWithEmailAndPassword(auth, username, password);
-      setIsLoader(false);
       if (rememberMe) {
         dispatch(
           setUserPermanent({
@@ -45,6 +45,21 @@ const LoginComponent = () => {
       setIsLogedin(true);
     } catch (error) {
       console.log(error.code);
+      switch (error.code) {
+        case "auth/invalid-email":
+          setError(["*invalid email", ""]);
+          break;
+        case "auth/user-not-found":
+          setError(["*user not found", ""]);
+          break;
+        case "auth/missing-password":
+          setError(["", "*invalid password"]);
+          break;
+        default:
+          setError(["*something went wrong", ""]);
+      }
+    } finally {
+      setIsLoader(false);
     }
   };
 
@@ -57,26 +72,28 @@ const LoginComponent = () => {
           <div className="icon username"></div>
           <input
             type="text"
-            className="username"
+            className={error[0] ? "error-border username" : "username"}
             placeholder="username"
             value={username}
             onChange={(e) => {
               setUsername(e.target.value);
             }}
           />
+          {error ? <div className="error">{error[0]}</div> : <></>}
         </div>
         {/* <label className="label password-label">Password</label> */}
         <div className="password-wrapper">
           <div className="icon password"></div>
           <input
             type="password"
-            className="password"
+            className={error[1] ? "error-border password" : "password"}
             placeholder="password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
+          {error ? <div className="error">{error[1]}</div> : <></>}
         </div>
         <button
           className={rememberMe ? "active remember-me-btn" : "remember-me-btn"}
@@ -97,11 +114,14 @@ const LoginComponent = () => {
         )}
       </Form>
       <div className="divider">
-        <div>or</div>
+        <div>or continue with</div>
       </div>
       <div className="other-login-methods">
+        <button className="demo-login-btn">
+          Demo
+        </button>
         <button className="google-login-btn">
-          <div>Continue with google</div>
+          <div></div>
         </button>
       </div>
     </div>

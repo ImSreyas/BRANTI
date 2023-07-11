@@ -71,8 +71,21 @@
           padding-block: 0.9rem;
           border-radius: 1rem;
           border: 2px solid $border-color;
+
+          &.error-border {
+            border: 2px solid red;
+          }
+        }
+        .error {
+          width: fit-content;
+          color: red;
+          font-size: 0.6rem;
+          position: absolute;
+          bottom: -0.9rem;
+          right: 1rem;
         }
       }
+
       button {
         &.remember-me-btn {
           padding: 0.25rem 0.8rem;
@@ -131,9 +144,25 @@
       transform: translate(-50%, -55%);
       background-color: $background-color;
       padding-inline: 1rem;
+      font-size: .75rem;
     }
   }
   .other-login-methods {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+
+    .demo-login-btn {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background-color: $background-color;
+      color: $text-color;
+      border: 2px solid $border-color;
+    }
     .google-login-btn {
       width: 100%;
       padding: 0.8rem 1rem;
