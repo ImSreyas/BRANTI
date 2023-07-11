@@ -1,0 +1,15 @@
+@media (width <= 1200px){
+  .login-page{
+    display: flex;
+    justify-content: center;
+
+    .asset-container{
+      display: none;
+    }
+    .login-container{
+      width: 80%;
+      padding: 3.5rem 8rem;
+      border-radius: 2.5rem;
+    }
+  }
+}

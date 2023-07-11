@@ -44,7 +44,6 @@ const LoginComponent = () => {
       }
       setIsLogedin(true);
     } catch (error) {
-      console.log(error.code);
       switch (error.code) {
         case "auth/invalid-email":
           setError(["*invalid email", ""]);
@@ -54,6 +53,9 @@ const LoginComponent = () => {
           break;
         case "auth/missing-password":
           setError(["", "*invalid password"]);
+          break;
+        case "auth/wrong-password":
+          setError(["", "*wrong password"]);
           break;
         default:
           setError(["*something went wrong", ""]);
@@ -114,16 +116,14 @@ const LoginComponent = () => {
         )}
       </Form>
       <div className="no-account-container">
-          <div className="text">Don't have an account? create one</div>
-          <button className="create-btn"></button>
+        <div className="text">Don't have an account? create one</div>
+        <button className="create-btn"></button>
       </div>
       <div className="divider">
         <div>or continue with</div>
       </div>
       <div className="other-login-methods">
-        <button className="demo-login-btn">
-          Demo
-        </button>
+        <button className="demo-login-btn">Demo</button>
         <button className="google-login-btn">
           <div></div>
         </button>

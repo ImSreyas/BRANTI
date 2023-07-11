@@ -15,7 +15,6 @@ const CustomerLogin = () => {
   return (
     <div className="main-body login-page">
       <Asset url="/assets/login.svg" />
-      <div className="devider"></div>
       <LoginComponent />
     </div>
   );
