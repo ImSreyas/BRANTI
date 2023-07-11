@@ -113,6 +113,10 @@ const LoginComponent = () => {
           </button>
         )}
       </Form>
+      <div className="no-account-container">
+          <div className="text">Don't have an account? create one</div>
+          <button className="create-btn"></button>
+      </div>
       <div className="divider">
         <div>or continue with</div>
       </div>

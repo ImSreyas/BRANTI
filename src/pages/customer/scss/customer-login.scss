@@ -131,6 +131,29 @@
       }
     }
   }
+  .no-account-container{
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    gap: .5rem;
+    border: 2px solid $border-color;
+    margin-block-start: 1rem;
+    border-radius: 1rem;
+    width: 100%;
+
+    .text{
+      flex-grow: 1;
+      font-size: .8rem;
+      text-align: center;
+      padding-inline: .5rem;
+    }
+    .create-btn{
+      @include background-interface-icon("../../../../public/icons/rightArrow.svg",
+      1.8rem, 1.1rem);
+      border: 2px solid $border-color;
+      border-radius: .7rem;
+    }
+  }
   .divider {
     width: 100%;
     border-block-start: 2px solid $border-color-lighter;
