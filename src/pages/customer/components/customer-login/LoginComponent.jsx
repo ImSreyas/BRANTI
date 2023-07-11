@@ -22,7 +22,9 @@ const LoginComponent = () => {
   const create = async () => {
     try {
       setIsLoader(true);
-      const user = await signInWithEmailAndPassword(auth, username, password);
+      const user = await signInWithEmailAndPassword(auth, username, password, {
+        rememberMe: rememberMe,
+      });
       if (rememberMe) {
         dispatch(
           setUserPermanent({
