@@ -85,7 +85,7 @@
         &.remember-me-btn {
           padding: 0.25rem 0.8rem;
           border: 2px solid $border-color-lighter;
-          border-radius: 100rem;
+          border-radius: .6rem;
           font-weight: 600;
           color: $text-color-super-dim;
           transition: all 200ms ease-in-out;
@@ -165,7 +165,7 @@
       transform: translate(-50%, -55%);
       background-color: $background-color;
       padding-inline: 1rem;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
     }
   }
   .other-login-methods {
