@@ -16,11 +16,13 @@ const LoginComponent = () => {
   const customer = useSelector((state) => state.customer.value);
   const dispatch = useDispatch();
   const [isLogedin, setIsLogedin] = useState(false);
+  const [isloader, setIsLoader] = useState(false);
 
   const create = async () => {
     try {
+      setIsLoader(true);
       const user = await signInWithEmailAndPassword(auth, username, password);
-      // console.log(typeof(auth.currentUser));
+      setIsLoader(false);
       if (rememberMe) {
         dispatch(
           setUserPermanent({
@@ -84,9 +86,15 @@ const LoginComponent = () => {
         >
           Remember me
         </button>
-        <button type="submit" className="submit" onClick={create}>
-          log in
-        </button>
+        {isloader ? (
+          <button className="loader">
+            <img src="/icons/loader.svg" />
+          </button>
+        ) : (
+          <button type="submit" className="submit" onClick={create}>
+            log in
+          </button>
+        )}
       </Form>
       <div className="divider">
         <div>or</div>
