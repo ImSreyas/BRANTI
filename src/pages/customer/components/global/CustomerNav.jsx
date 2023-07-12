@@ -9,6 +9,7 @@ import NavCart from "../nav/NavCart";
 import NavProfile from "../nav/NavProfile";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
 const CustomerNav = () => {
   const customer = useSelector((state) => state.customer.value);
@@ -28,16 +29,7 @@ const CustomerNav = () => {
             <NavNotification />
           </>
         ) : (
-          <NavLink
-            to="login"
-            className={({ isActive }) => {
-              return isActive
-                ? "active nav-links login-btn"
-                : "nav-links login-btn";
-            }}
-          >
-            login
-          </NavLink>
+          <></>
         )}
         <NavProfile />
       </div>

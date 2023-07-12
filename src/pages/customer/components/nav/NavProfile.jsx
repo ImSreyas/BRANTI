@@ -3,20 +3,39 @@ import { NavLink } from "react-router-dom";
 import MoreOptions from "./MoreOptions";
 import { useSelector, useDispatch } from "react-redux";
 import { change } from "../../../../store/navOptionSlice";
+import { auth } from "../../../../firebase.config";
 
 const NavProfile = () => {
+  const user = useSelector((state) => state.customer.value)
   const moreOptionsBtn = useSelector((state) => state.navOptionSlice);
   const dispatch = useDispatch();
   const handleOptionClick = () => {
     dispatch(change());
   };
-  const user = useSelector((state) => state.customer.value);
 
   return (
     <div className="nav-icon profile-icon-container">
-      <NavLink to="profile" className="profile-icon">
-        {user.img ? <img src={user.img} /> : <img src="/icons/user.svg" />}
-      </NavLink>
+      {Object.keys(user).length != 0 ? (
+        <NavLink to="profile" className="profile-icon">
+          {user.img ? (
+            <img src={user.img} />
+          ) : (
+            <img src="/icons/user.svg" />
+          )}
+        </NavLink>
+      ) : (
+        <NavLink
+          to="login"
+          className={({ isActive }) => {
+            return isActive
+              ? "active nav-links login-btn"
+              : "nav-links login-btn";
+          }}
+        >
+          login
+        </NavLink>
+      )}
+      <div className="divider"></div>
       <div
         onClick={handleOptionClick}
         className={
