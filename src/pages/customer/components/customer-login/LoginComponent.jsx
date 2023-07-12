@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Link, Navigate, redirect, useNavigate } from "react-router-dom";
+import { Form, Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../../firebase.config.js";
@@ -7,13 +7,12 @@ import {
   setUserTemp,
   setUserPermanent,
 } from "../../../../store/customerSlice.js";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const customer = useSelector((state) => state.customer.value);
   const dispatch = useDispatch();
   const [isLogedin, setIsLogedin] = useState(false);
   const [isloader, setIsLoader] = useState(false);
@@ -23,7 +22,7 @@ const LoginComponent = () => {
   const create = async () => {
     try {
       setIsLoader(true);
-      const user = await signInWithEmailAndPassword(auth, username, password, {
+      await signInWithEmailAndPassword(auth, username, password, {
         rememberMe: rememberMe,
       });
       if (rememberMe) {
@@ -118,7 +117,7 @@ const LoginComponent = () => {
         </button>
         {isloader ? (
           <button className="loader">
-            <img src="/icons/loader.svg" />
+            <img alt="leader icon" src="/icons/loader.svg" />
           </button>
         ) : (
           <button type="submit" className="submit" onClick={create}>

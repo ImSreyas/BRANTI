@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import MoreOptions from "./MoreOptions";
 import { useSelector, useDispatch } from "react-redux";
 import { change } from "../../../../store/navOptionSlice";
-import { auth } from "../../../../firebase.config";
 
 const NavProfile = () => {
   const user = useSelector((state) => state.customer.value)
@@ -15,12 +14,12 @@ const NavProfile = () => {
 
   return (
     <div className="nav-icon profile-icon-container">
-      {Object.keys(user).length != 0 ? (
+      {Object.keys(user).length !== 0 ? (
         <NavLink to="profile" className="profile-icon">
           {user.img ? (
-            <img src={user.img} />
+            <img alt="profile icon" src={user.img} />
           ) : (
-            <img src="/icons/user.svg" />
+            <img alt="profile icon" src="/icons/user.svg" />
           )}
         </NavLink>
       ) : (
