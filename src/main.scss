@@ -35,3 +35,22 @@ body {
 ::placeholder {
   color: rgb(190, 190, 190);
 }
+::-webkit-scrollbar{
+    background-color: white;
+    border-radius: 100px;
+    width: .4rem;
+}
+::-webkit-scrollbar-track{
+    margin-bottom: -10px; 
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(210, 210, 210);
+    border-radius: 100px;
+    /* border: .05rem solid rgb(255, 255, 255); */
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(167, 167, 167);
+}
+::-webkit-scrollbar-thumb:active{
+    background-color: rgb(115, 115, 115);
+}
