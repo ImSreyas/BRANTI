@@ -18,6 +18,7 @@ const LoginComponent = () => {
   const [isLogedin, setIsLogedin] = useState(false);
   const [isloader, setIsLoader] = useState(false);
   const [error, setError] = useState(["", ""]);
+  const [passwordShower, setPasswordShower] = useState(false);
 
   const create = async () => {
     try {
@@ -88,8 +89,16 @@ const LoginComponent = () => {
         {/* <label className="label password-label">Password</label> */}
         <div className="password-wrapper">
           <div className="icon password"></div>
+          <button
+            className={
+              passwordShower ? "show-password-btn" : "hide-password-btn"
+            }
+            onClick={() => {
+              setPasswordShower((state) => !state);
+            }}
+          ></button>
           <input
-            type="password"
+            type={passwordShower ? "text" : "password"}
             className={error[1] ? "error-border password" : "password"}
             placeholder="password"
             value={password}

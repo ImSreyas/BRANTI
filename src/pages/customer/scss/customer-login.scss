@@ -29,9 +29,29 @@
       .username-wrapper {
         margin-block-end: 1.4rem;
       }
-      // .password-wrapper{
-      //   margin-block-end: .5rem;
-      // }
+      .password-wrapper {
+        .show-password-btn {
+          @include background-interface-icon(
+            "../../../../public/icons/eyeOpened.png",
+            1.6rem,
+            1.4rem
+          );
+          position: absolute;
+          right: 1rem;
+          top: 52%;
+          transform: translateY(-50%);
+        }
+        .hide-password-btn{
+          @include background-interface-icon(
+            "../../../../public/icons/eyeClosed.svg",
+            1.7rem
+          );
+          position: absolute;
+          right: 1rem;
+          top: 52%;
+          transform: translateY(-50%);
+        }
+      }
       .username-wrapper,
       .password-wrapper {
         position: relative;
@@ -67,6 +87,9 @@
           border-radius: 1rem;
           border: 2px solid $border-color;
 
+          &.password{
+            padding-inline-end: 3.2rem;
+          }
           &.error-border {
             border: 2px solid red;
           }
@@ -85,7 +108,7 @@
         &.remember-me-btn {
           padding: 0.25rem 0.8rem;
           border: 2px solid $border-color-lighter;
-          border-radius: .6rem;
+          border-radius: 0.6rem;
           font-weight: 600;
           color: $text-color-super-dim;
           transition: all 200ms ease-in-out;
