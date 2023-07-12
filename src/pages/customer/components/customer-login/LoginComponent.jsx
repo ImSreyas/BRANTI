@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Navigate, redirect, useNavigate } from "react-router-dom";
+import { Form, Link, Navigate, redirect, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../../firebase.config.js";
@@ -128,7 +128,7 @@ const LoginComponent = () => {
       </Form>
       <div className="no-account-container">
         <div className="text">Don't have an account? create one</div>
-        <button className="create-btn"></button>
+        <Link to="/signIn" className="create-btn"></Link>
       </div>
       <div className="divider">
         <div>or continue with</div>
