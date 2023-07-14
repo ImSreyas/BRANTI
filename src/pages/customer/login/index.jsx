@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import Asset from "../super-global/Asset";
-import LoginComponent from "./components/customer-login/LoginComponent";
-import "./scss/customer-login.scss";
-import { useSelector } from "react-redux";
+import React from "react";
+import Asset from "pages/common/Asset";
+import LoginComponent from "./components/Login";
+import "./style/customer-login.scss";
 import { redirect } from "react-router-dom";
+import loginImageUrl from "assets/images/login.svg"
 
 export const loader = () => {
   if (localStorage.getItem("customer") ?? sessionStorage.getItem("customer")) return redirect("/");
@@ -14,7 +14,7 @@ const CustomerLogin = () => {
 
   return (
     <div className="main-body login-page">
-      <Asset url="/assets/login.svg" />
+      <Asset url={loginImageUrl} />
       <LoginComponent />
     </div>
   );

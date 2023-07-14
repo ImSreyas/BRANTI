@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import CustomerNav from "../global/CustomerNav";
-import OptionCloser from "../../../super-global/OptionCloser";
-import Footer from "../global/CustomerFooter"
+import { default as CustomerNav } from "./Nav";
+import OptionCloser from "pages/common/OptionCloser";
+import Footer from "./Footer";
 
 const CustomerLayout = () => {
   return (

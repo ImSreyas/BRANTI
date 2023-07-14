@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { change } from "../../../../store/navOptionSlice";
-import { unsetUser } from "../../../../store/customerSlice";
+import { change } from "store/navOptionSlice";
+import { unsetUser } from "store/customerSlice";
 import { signOut } from "firebase/auth";
-import { auth } from "../../../../firebase.config";
+import { auth } from "config/firebase";
 
 const MoreOptions = () => {
   const moreOptionsBtn = useSelector((state) => state.navOptionSlice);

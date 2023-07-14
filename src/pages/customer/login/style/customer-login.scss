@@ -1,4 +1,4 @@
-@import "../../../library.scss";
+@import "style/library.scss";
 .login-page {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -32,7 +32,7 @@
       .password-wrapper {
         .show-password-btn {
           @include background-interface-icon(
-            "../../../../public/icons/eyeOpened.png",
+            "../../../../assets/icons/eyeOpened.png",
             1.6rem,
             1.4rem
           );
@@ -43,7 +43,7 @@
         }
         .hide-password-btn{
           @include background-interface-icon(
-            "../../../../public/icons/eyeClosed.svg",
+            "../../../../assets/icons/eyeClosed.svg",
             1.7rem
           );
           position: absolute;
@@ -63,13 +63,13 @@
           transform: translateY(-50%);
           &.username {
             @include background-interface-icon(
-              "../../../../public/icons/email.svg",
+              "../../../../assets/icons/email.svg",
               1rem
             );
           }
           &.password {
             @include background-interface-icon(
-              "../../../../public/icons/password.svg",
+              "../../../../assets/icons/password.svg",
               1rem
             );
           }
@@ -167,7 +167,7 @@
     }
     .create-btn {
       @include background-interface-icon(
-        "../../../../public/icons/rightArrow.svg",
+        "../../../../assets/icons/rightArrow.svg",
         2rem,
         1.1rem
       );
@@ -226,7 +226,7 @@
           display: inline-block;
           content: "";
           @include background-interface-icon(
-            "../../../../public/icons/google.svg",
+            "../../../../assets/icons/google.svg",
             1.3rem
           );
         }

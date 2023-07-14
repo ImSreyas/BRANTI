@@ -1,23 +1,19 @@
-import React from "react";
+import React, { useState }  from "react";
 import { Form, Link, Navigate } from "react-router-dom";
-import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../../firebase.config.js";
-import {
-  setUserTemp,
-  setUserPermanent,
-} from "../../../../store/customerSlice.js";
+import { auth } from "config/firebase.js";
+import { setUserTemp, setUserPermanent } from "store/customerSlice.js";
 import { useDispatch } from "react-redux";
 
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const dispatch = useDispatch();
   const [isLogedin, setIsLogedin] = useState(false);
   const [isloader, setIsLoader] = useState(false);
   const [error, setError] = useState(["", ""]);
   const [passwordShower, setPasswordShower] = useState(false);
+  const dispatch = useDispatch();
 
   const create = async () => {
     try {

@@ -1,4 +1,4 @@
-@import "../../../../../library.scss";
+@import "style/library.scss";
 nav {
   width: 100%;
   height: fit-content;
@@ -46,7 +46,7 @@ nav {
         }
         .search-btn {
           @include background-interface-icon(
-            "../public/icons/search.svg",
+            "../../../../assets/icons/search.svg",
             1.5rem,
             1.3rem
           );
@@ -81,21 +81,21 @@ nav {
 
       &.notification-icon {
         @include background-interface-icon(
-          "../public/icons/notification.svg",
+          "../../../../assets/icons/notification.svg",
           1.5rem,
           1.2rem
         );
       }
       &.wishlist-icon {
         @include background-interface-icon(
-          "../public/icons/wishList.svg",
+          "../../../../assets/icons/wishList.svg",
           1.5rem,
           1.2rem
         );
       }
       &.cart-icon {
         @include background-interface-icon(
-          "../public/icons/card.svg",
+          "../../../../assets/icons/card.svg",
           1.5rem,
           1.2rem
         );
@@ -116,7 +116,7 @@ nav {
         height: 85%;
         aspect-ratio: 1/1;
         border-radius: 100rem;
-        margin-inline: .2rem;
+        margin-inline: 0.2rem;
         // background-color: black;
 
         img {
@@ -144,7 +144,7 @@ nav {
       }
       .more-options-icon {
         @include background-interface-icon(
-          "../public/icons/dropDownArrow.svg",
+          "../../../../assets/icons/dropDownArrow.svg",
           1.5rem,
           1rem
         );

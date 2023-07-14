@@ -1,17 +1,17 @@
-import "./main.scss";
+import "./style/main.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import CustomerLayout from "./pages/customer/components/layout/CustomerLayout"
-import Home from "./pages/customer/Home";
-import Category from "./pages/customer/Category";
-import Trending from "./pages/customer/Trending";
-import Notification from "./pages/customer/Notification";
-import WishList from "./pages/customer/WishList";
-import Cart from "./pages/customer/Cart";
-import Profile from "./pages/customer/Profile";
-import CustomerLogin from "./pages/customer/CustomerLogin";
-import Offers from "./pages/customer/Offers";
-import SellerLogin from "./pages/seller/SellerLogin";
-import { loader } from "./pages/customer/CustomerLogin";
+import CustomerLayout from "./pages/customer/common/Layout";
+import Home from "./pages/customer/home";
+import Category from "./pages/customer/category";
+import Trending from "./pages/customer/trending";
+import Notification from "./pages/customer/notification";
+import WishList from "./pages/customer/wishlist";
+import Cart from "./pages/customer/cart";
+import Profile from "./pages/customer/profile";
+import CustomerLogin from "./pages/customer/login";
+import Offers from "./pages/customer/offers";
+import SellerLogin from "./pages/seller/login";
+import { loader } from "./pages/customer/login";
 
 function App() {
   const router = createBrowserRouter([
@@ -50,7 +50,7 @@ function App() {
         {
           path: "login",
           element: <CustomerLogin />,
-          loader
+          loader,
         },
         {
           path: "offers",
