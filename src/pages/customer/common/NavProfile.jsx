@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import MoreOptions from "./MoreOptions";
 import { useSelector, useDispatch } from "react-redux";
 import { change } from "store/navOptionSlice";
+import userIconUrl from "assets/icons/user.svg";
+
 const NavProfile = () => {
   const user = useSelector((state) => state.customer.value)
   const moreOptionsBtn = useSelector((state) => state.navOptionSlice);
@@ -18,7 +20,7 @@ const NavProfile = () => {
           {user.img ? (
             <img alt="profile icon" src={user.img} />
           ) : (
-            <img alt="profile icon" src="/icons/user.svg" />
+            <img alt="profile icon" src={userIconUrl} />
           )}
         </NavLink>
       ) : (
