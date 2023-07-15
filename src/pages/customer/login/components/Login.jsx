@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "config/firebase.js";
 import { setUserTemp, setUserPermanent } from "store/customerSlice.js";
 import { useDispatch } from "react-redux";
+import loaderIconSvg from "assets/icons/loader.svg"
 
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
@@ -113,7 +114,7 @@ const LoginComponent = () => {
         </button>
         {isloader ? (
           <button className="loader">
-            <img alt="leader icon" src="/icons/loader.svg" />
+            <img alt="leader icon" src={loaderIconSvg} />
           </button>
         ) : (
           <button type="submit" className="submit" onClick={create}>
