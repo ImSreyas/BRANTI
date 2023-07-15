@@ -1,21 +1,16 @@
 @import "style/library.scss";
-nav {
-  width: 100%;
-  height: fit-content;
-  padding: 1rem 4rem;
-  display: flex;
-  align-items: center;
-  // position: sticky;
-  // top: -1rem;
-  // left: 0;
-  // z-index: 5;
 
-  .logo-and-search-container {
-    @include flex-center;
-    gap: 2.4rem;
-    width: auto;
-    flex-grow: 1;
-    padding-inline-end: 1.5rem;
+@media (1200px < width) {
+  nav {
+    width: 100%;
+    height: fit-content;
+    padding: 1rem 4rem;
+    display: flex;
+    align-items: center;
+    // position: sticky;
+    // top: -1rem;
+    // left: 0;
+    // z-index: 5;
 
     .logo {
       font-family: "Unica One", cursive;
@@ -32,6 +27,7 @@ nav {
       position: relative;
       display: flex;
       flex-grow: 1;
+      margin-inline: 2rem 1rem;
 
       .search-form {
         width: 100%;
@@ -57,13 +53,6 @@ nav {
         }
       }
     }
-  }
-  .navigation-container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     > .nav-links {
       text-decoration: none;
       padding: 1.5rem;
@@ -80,6 +69,8 @@ nav {
       margin-inline: 1rem;
 
       &.notification-icon {
+        width: 1.5rem;
+        height: 1.5rem;
         @include background-interface-icon(
           "../../../../assets/icons/notification.svg",
           1.5rem,
@@ -87,6 +78,8 @@ nav {
         );
       }
       &.wishlist-icon {
+        width: 1.5rem;
+        height: 1.5rem;
         @include background-interface-icon(
           "../../../../assets/icons/wishList.svg",
           1.5rem,
@@ -94,6 +87,8 @@ nav {
         );
       }
       &.cart-icon {
+        width: 1.5rem;
+        height: 1.5rem;
         @include background-interface-icon(
           "../../../../assets/icons/card.svg",
           1.5rem,

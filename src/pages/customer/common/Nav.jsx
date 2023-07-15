@@ -1,5 +1,5 @@
 import "./style/nav.scss";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Logo from "./Logo";
 import Search from "./Search";
 import NavMain from "./NavMain";
@@ -8,29 +8,22 @@ import NavWishlist from "./NavWishlist";
 import NavCart from "./NavCart";
 import NavProfile from "./NavProfile";
 import { useSelector } from "react-redux";
+import { windowSizeContext } from "App";
 
 const CustomerNav = () => {
+  const width = useContext(windowSizeContext);
   const customer = useSelector((state) => state.customer.value);
+  console.log(width);
 
   return (
     <nav>
-      <div className="logo-and-search-container">
-        <Logo />
-        <Search />
-      </div>
-      <div className="navigation-container">
-        <NavMain />
-        {Object.keys(customer).length !== 0 ? (
-          <>
-            <NavWishlist />
-            <NavCart />
-            <NavNotification />
-          </>
-        ) : (
-          <></>
-        )}
-        <NavProfile />
-      </div>
+      <Logo />
+      <Search />
+      <NavMain />
+      <NavNotification />
+      <NavWishlist />
+      <NavCart />
+      <NavProfile />
     </nav>
   );
 };
