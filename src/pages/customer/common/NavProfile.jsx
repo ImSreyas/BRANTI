@@ -6,7 +6,7 @@ import { change } from "store/navOptionSlice";
 import userIconUrl from "assets/icons/user.svg";
 
 const NavProfile = () => {
-  const user = useSelector((state) => state.customer.value)
+  const user = useSelector((state) => state.customer.value);
   const moreOptionsBtn = useSelector((state) => state.navOptionSlice);
   const dispatch = useDispatch();
   const handleOptionClick = () => {
