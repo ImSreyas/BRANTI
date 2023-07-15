@@ -12,8 +12,23 @@ import CustomerLogin from "./pages/customer/login";
 import Offers from "./pages/customer/offers";
 import SellerLogin from "./pages/seller/login";
 import { loader } from "./pages/customer/login";
+import { createContext, useEffect, useState } from "react";
+
+export const windowSizeContext = createContext();
 
 function App() {
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const windowSizeListener = (e) => {
+      setWidth(e.target.innerWidth);
+    };
+    window.addEventListener("resize", windowSizeListener);
+
+    return () => {
+      window.removeEventListener("resize", windowSizeListener);
+    };
+  }, []);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -64,7 +79,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <windowSizeContext.Provider value={width}>
+      <RouterProvider router={router} />
+    </windowSizeContext.Provider>
+  );
 }
 
 export default App;
