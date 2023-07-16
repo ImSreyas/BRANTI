@@ -8,22 +8,62 @@ import NavWishlist from "./NavWishlist";
 import NavCart from "./NavCart";
 import NavProfile from "./NavProfile";
 import { useSelector } from "react-redux";
-import { windowSizeContext } from "App";
+import useWindowSize from "hooks/useWidowSize";
+import MobileOptions from "./MobileOptions";
+
 
 const CustomerNav = () => {
-  const width = useContext(windowSizeContext);
+  const { width } = useWindowSize();
   const customer = useSelector((state) => state.customer.value);
-  console.log(width);
 
   return (
     <nav>
-      <Logo />
-      <Search />
-      <NavMain />
-      <NavNotification />
-      <NavWishlist />
-      <NavCart />
-      <NavProfile />
+      {1200 < width ? (
+        <>
+          <Logo />
+          <Search />
+          <NavMain />
+          <NavNotification />
+          <NavWishlist />
+          <NavCart />
+          <NavProfile />
+        </>
+      ) : 600 < width ? (
+        <>
+          <div className="top-section">
+            <div className="logo-container">
+              <Logo />
+            </div>
+            <div className="nav-btn-container">
+              <NavNotification />
+              <NavWishlist />
+              <NavCart />
+              <NavProfile />
+            </div>
+          </div>
+          <div className="bottom-section">
+            <NavMain />
+            <Search />
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="top-section">
+            <div className="logo-container">
+              <Logo />
+            </div>
+            <div className="nav-btn-container">
+              <NavNotification />
+              <NavWishlist />
+              <NavCart />
+              <MobileOptions />
+            </div>
+          </div>
+          <div className="bottom-section">
+            <Search />
+          </div>
+        </>
+      )}
     </nav>
   );
 };
