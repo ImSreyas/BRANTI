@@ -1,61 +1,15 @@
 import React, { useState } from "react";
 import { Form, Link, Navigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "config/firebase.js";
-import { setUser } from "store/customerSlice.js";
 import { useDispatch } from "react-redux";
 import loaderIconSvg from "assets/icons/loader.svg";
-import { type } from "@testing-library/user-event/dist/type";
+import useEmailLogin from "hooks/useEmailLogin";
 
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [isLogedin, setIsLogedin] = useState(false);
-  const [isloader, setIsLoader] = useState(false);
-  const [error, setError] = useState(["", ""]);
   const [passwordShower, setPasswordShower] = useState(false);
-  const dispatch = useDispatch();
-
-  const create = async () => {
-    try {
-      setIsLoader(true);
-      await signInWithEmailAndPassword(auth, username, password, {
-        rememberMe: rememberMe,
-      });
-      dispatch(
-        setUser({
-          type: rememberMe ? "PERMANENT" : "TEMPORARY",
-          value: {
-            uid: auth.currentUser.uid,
-            email: auth.currentUser.email,
-            displayName: auth.currentUser.displayName,
-            photoURL: auth.currentUser.photoURL,
-          },
-        })
-      );
-      setIsLogedin(true);
-    } catch (error) {
-      switch (error.code) {
-        case "auth/invalid-email":
-          setError(["*invalid email", ""]);
-          break;
-        case "auth/user-not-found":
-          setError(["*user not found", ""]);
-          break;
-        case "auth/missing-password":
-          setError(["", "*invalid password"]);
-          break;
-        case "auth/wrong-password":
-          setError(["", "*wrong password"]);
-          break;
-        default:
-          setError(["*something went wrong", ""]);
-      }
-    } finally {
-      setIsLoader(false);
-    }
-  };
+  const { signIn, states: [isLogedin, isLoader, error] } = useEmailLogin("customer", username, password, rememberMe)
 
   if (isLogedin) return <Navigate to="/" />;
   return (
@@ -105,12 +59,12 @@ const LoginComponent = () => {
         >
           Remember me
         </button>
-        {isloader ? (
+        {isLoader ? (
           <button className="loader">
             <img alt="leader icon" src={loaderIconSvg} />
           </button>
         ) : (
-          <button type="submit" className="submit" onClick={create}>
+          <button type="submit" className="submit" onClick={signIn}>
             log in
           </button>
         )}
