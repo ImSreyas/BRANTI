@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form, Link, Navigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import loaderIconSvg from "assets/icons/loader.svg";
 import useEmailLogin from "hooks/useEmailLogin";
 
