@@ -1,4 +1,6 @@
 @import "style/library.scss";
+@import "style/input.scss";
+
 .login-page {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -26,99 +28,7 @@
     box-shadow: 0 0 5rem rgb(225, 225, 225);
 
     .login-form {
-      .username-wrapper {
-        margin-block-end: 1.4rem;
-      }
-      .password-wrapper {
-        .show-password-btn {
-          @include background-interface-icon(
-            "../../../../assets/icons/eyeOpened.png",
-            1.6rem,
-            1.4rem
-          );
-          position: absolute;
-          right: 1rem;
-          top: 52%;
-          transform: translateY(-50%);
-        }
-        .hide-password-btn{
-          @include background-interface-icon(
-            "../../../../assets/icons/eyeClosed.svg",
-            1.7rem
-          );
-          position: absolute;
-          right: 1rem;
-          top: 52%;
-          transform: translateY(-50%);
-        }
-      }
-      .username-wrapper,
-      .password-wrapper {
-        position: relative;
-
-        .icon {
-          position: absolute;
-          top: 50%;
-          left: 1rem;
-          transform: translateY(-50%);
-          &.username {
-            @include background-interface-icon(
-              "../../../../assets/icons/email.svg",
-              1rem
-            );
-          }
-          &.password {
-            @include background-interface-icon(
-              "../../../../assets/icons/password.svg",
-              1rem
-            );
-          }
-        }
-        label {
-          display: block;
-          padding: 0 0.5rem.2rem 0.5rem;
-          font-size: 0.9rem;
-        }
-        input {
-          font-size: 0.9rem;
-          width: 100%;
-          padding-inline: 3rem 1.2rem;
-          padding-block: 1rem;
-          border-radius: 1rem;
-          border: 2px solid $border-color;
-
-          &.password{
-            padding-inline-end: 3.2rem;
-          }
-          &.error-border {
-            border: 2px solid red;
-          }
-        }
-        .error {
-          width: fit-content;
-          color: red;
-          font-size: 0.6rem;
-          position: absolute;
-          bottom: -0.9rem;
-          right: 1rem;
-        }
-      }
-
       button {
-        &.remember-me-btn {
-          padding: 0.25rem 0.8rem;
-          border: 2px solid $border-color-lighter;
-          border-radius: 0.6rem;
-          font-weight: 600;
-          color: $text-color-super-dim;
-          transition: all 200ms ease-in-out;
-          margin-block: 1rem 0.6rem;
-          margin-inline-start: 0.2rem;
-
-          &.active {
-            color: $text-color;
-          }
-        }
         &.submit {
           width: 100%;
           padding: 1rem 1rem;
