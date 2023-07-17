@@ -1,10 +1,11 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import { Form, Link, Navigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "config/firebase.js";
-import { setUserTemp, setUserPermanent } from "store/customerSlice.js";
+import { setUser } from "store/customerSlice.js";
 import { useDispatch } from "react-redux";
-import loaderIconSvg from "assets/icons/loader.svg"
+import loaderIconSvg from "assets/icons/loader.svg";
+import { type } from "@testing-library/user-event/dist/type";
 
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
@@ -22,25 +23,17 @@ const LoginComponent = () => {
       await signInWithEmailAndPassword(auth, username, password, {
         rememberMe: rememberMe,
       });
-      if (rememberMe) {
-        dispatch(
-          setUserPermanent({
+      dispatch(
+        setUser({
+          type: rememberMe ? "PERMANENT" : "TEMPORARY",
+          value: {
             uid: auth.currentUser.uid,
             email: auth.currentUser.email,
             displayName: auth.currentUser.displayName,
             photoURL: auth.currentUser.photoURL,
-          })
-        );
-      } else {
-        dispatch(
-          setUserTemp({
-            uid: auth.currentUser.uid,
-            email: auth.currentUser.email,
-            displayName: auth.currentUser.displayName,
-            photoURL: auth.currentUser.photoURL,
-          })
-        );
-      }
+          },
+        })
+      );
       setIsLogedin(true);
     } catch (error) {
       switch (error.code) {
