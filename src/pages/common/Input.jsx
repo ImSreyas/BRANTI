@@ -1,9 +1,10 @@
 import "style/input.scss";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
   const [value, setValue] = propStates;
   const [passwordShower, setPasswordShower] = useState(false);
+  const inputRef = useRef(null);
 
   return (
     <div className="custom-input-wrapper">
@@ -18,6 +19,7 @@ const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
         <button
           className={passwordShower ? "show-password-btn" : "hide-password-btn"}
           onClick={() => {
+            inputRef.current.focus()
             setPasswordShower((state) => !state);
           }}
         ></button>
@@ -25,7 +27,8 @@ const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
         <></>
       )}
       <input
-        type={type}
+        ref={inputRef}
+        type={type !== "password" ? type : passwordShower ? "text" : "password"}
         className={
           (error ? "error-border" : "") +
           (type == "password" ? " password" : "")
