@@ -1,3 +1,4 @@
+import "style/input.scss";
 import React, { useState } from "react";
 
 const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
