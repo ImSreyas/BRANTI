@@ -19,7 +19,7 @@ const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
         <button
           className={passwordShower ? "show-password-btn" : "hide-password-btn"}
           onClick={() => {
-            inputRef.current.focus()
+            inputRef.current.focus();
             setPasswordShower((state) => !state);
           }}
         ></button>
@@ -28,16 +28,24 @@ const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
       )}
       <input
         ref={inputRef}
-        type={type !== "password" ? type ?? "text" : passwordShower ? "text" : "password"}
+        type={
+          type !== "password"
+            ? type ?? "text"
+            : passwordShower
+            ? "text"
+            : "password"
+        }
         className={
-          !iconSrc ? "default" : "" + 
-          (error ? "error-border" : "") +
-          (type == "password" ? " password" : "")
+          !iconSrc
+            ? "default"
+            : "" +
+              (error ? " error-border" : "") +
+              (type == "password" ? " password" : "")
         }
         placeholder={placeholder}
         value={value}
         onChange={(e) => {
-          if(setValue instanceof Function){
+          if (setValue instanceof Function) {
             setValue(e.target.value);
           }
         }}
