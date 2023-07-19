@@ -12,6 +12,9 @@
     border-radius: 1rem;
     border: 2px solid $border-color;
 
+    &.default{
+      padding-inline: 1.2rem;
+    }
     &.password {
       padding-inline-end: 3.2rem;
     }
@@ -61,7 +64,7 @@
     }
   }
 }
-//  remeber me button 
+//  ?remeber me button 
 .remember-me-btn {
   padding: 0.25rem 0.8rem;
   border: 2px solid $border-color-lighter;
@@ -73,6 +76,7 @@
   margin-inline-start: 0.2rem;
 
   &.active {
-    color: $text-color;
+    color: $background-color;
+    background-color: $text-color;
   }
 }
