@@ -2,7 +2,7 @@ import "style/input.scss";
 import React, { useRef, useState } from "react";
 
 const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
-  const [value, setValue] = propStates;
+  const [value, setValue] = propStates ?? [null, null];
   const [passwordShower, setPasswordShower] = useState(false);
   const inputRef = useRef(null);
 
@@ -28,15 +28,18 @@ const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
       )}
       <input
         ref={inputRef}
-        type={type !== "password" ? type : passwordShower ? "text" : "password"}
+        type={type !== "password" ? type ?? "text" : passwordShower ? "text" : "password"}
         className={
+          !iconSrc ? "default" : "" + 
           (error ? "error-border" : "") +
           (type == "password" ? " password" : "")
         }
         placeholder={placeholder}
         value={value}
         onChange={(e) => {
-          setValue(e.target.value);
+          if(setValue instanceof Function){
+            setValue(e.target.value);
+          }
         }}
       />
       {error ? <div className="error">{error}</div> : <></>}
