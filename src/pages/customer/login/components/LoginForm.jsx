@@ -19,12 +19,24 @@ const LoginForm = ({ propStates }) => {
   if (isLogedin) return <Navigate to="/" />;
   return (
     <Form className="login-form">
-      <Input type="text" placeholder="username" iconSrc={emailIconUrl} propStates={[username, setUsername]} error={error[0]} />
-      <Input type="password" placeholder="password" iconSrc={passwordIconUrl} propStates={[password, setPassword]} error={error[1]}/>
+      <Input
+        type="text"
+        placeholder="username"
+        iconSrc={emailIconUrl}
+        propStates={[username, setUsername]}
+        error={error[0]}
+      />
+      <Input
+        type="password"
+        placeholder="password"
+        iconSrc={passwordIconUrl}
+        propStates={[password, setPassword]}  
+        error={error[1]}
+      />
       <RememberMeButton propStates={[rememberMe, setRememberMe]} />
       <LoginButton propStates={[isLoader, signIn]} />
     </Form>
-  );
-};
+  )
+}
 
 export default LoginForm;

@@ -60,21 +60,34 @@ nav {
     font-weight: 600;
 
     &.active {
-      color: black;
+      color: $primary-color;
       position: relative;
     }
   }
   .nav-icon {
     $icon-size: 1.5rem;
     margin-inline: 1rem;
+    position: relative;
 
+    &.icon.active::after{
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -.55rem;
+      width: calc($icon-size * .7);
+      height: .2rem;
+      border-radius: 100rem;
+      background-color: $primary-color;
+    }
     &.notification-icon {
       width: $icon-size;
       height: $icon-size;
       @include background-interface-icon(
         "../../../../assets/icons/notification.svg",
         $icon-size,
-        $icon-size / 1.25
+        calc($icon-size / 1.25)
       );
     }
     &.wishlist-icon {

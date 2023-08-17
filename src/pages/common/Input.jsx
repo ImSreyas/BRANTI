@@ -10,12 +10,10 @@ const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
     <div className="custom-input-wrapper">
       {iconSrc ? (
         <div className="input-icon">
-          <img src={iconSrc} />
+          <img src={iconSrc} alt="" />
         </div>
-      ) : (
-        <></>
-      )}
-      {type == "password" ? (
+      ) : null}
+      {type === "password" ? (
         <button
           className={passwordShower ? "show-password-btn" : "hide-password-btn"}
           onClick={() => {
@@ -23,9 +21,7 @@ const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
             setPasswordShower((state) => !state);
           }}
         ></button>
-      ) : (
-        <></>
-      )}
+      ) : null}
       <input
         ref={inputRef}
         type={
@@ -40,7 +36,7 @@ const Input = ({ type, placeholder, iconSrc, propStates, error }) => {
             ? "default"
             : "" +
               (error ? " error-border" : "") +
-              (type == "password" ? " password" : "")
+              (type === "password" ? " password" : "")
         }
         placeholder={placeholder}
         value={value}

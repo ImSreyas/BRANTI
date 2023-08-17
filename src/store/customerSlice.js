@@ -10,7 +10,7 @@ const customerSlice = createSlice({
   initialState: { value: initialState },
   reducers: {
     setUser: (state, action) => {
-      if (action.payload.type == "TEMPORARY") {
+      if (action.payload.type === "TEMPORARY") {
         sessionStorage.setItem(
           "customer",
           JSON.stringify(action.payload.value)

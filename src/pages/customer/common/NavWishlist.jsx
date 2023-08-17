@@ -7,8 +7,8 @@ const NavWishlist = () => {
       to="wishlist"
       className={({ isActive }) => {
         return isActive
-          ? "active nav-icon wishlist-icon"
-          : "nav-icon wishlist-icon";
+          ? "active nav-icon icon wishlist-icon"
+          : "nav-icon icon wishlist-icon";
       }}
     ></NavLink>
   );

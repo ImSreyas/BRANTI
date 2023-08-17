@@ -7,8 +7,8 @@ const NavNotification = () => {
       to="notification"
       className={({ isActive }) => {
         return isActive
-          ? "active nav-icon notification-icon"
-          : "nav-icon notification-icon";
+          ? "active nav-icon icon notification-icon"
+          : "nav-icon icon notification-icon";
       }}
     ></NavLink>
   );
