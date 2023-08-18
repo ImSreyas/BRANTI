@@ -12,6 +12,7 @@ import CustomerLogin from "./pages/customer/login";
 import Offers from "./pages/customer/offers";
 import SellerLogin from "./pages/seller/login";
 import { loader } from "./pages/customer/login";
+import CustomerSignIn from "pages/customer/common/signin";
 
 function App() {
   const router = createBrowserRouter([
@@ -60,6 +61,10 @@ function App() {
           path: "seller",
           element: <SellerLogin />,
         },
+        {
+          path: "signIn",
+          element: <CustomerSignIn />,
+        }
       ],
     },
   ]);
