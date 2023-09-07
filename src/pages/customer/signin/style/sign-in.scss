@@ -1,0 +1,65 @@
+@import "style/library.scss";
+
+.customer-sign-in-page {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0 2rem;
+
+  .asset-container {
+    padding: 0 1rem;
+  }
+  .sign-in-container {
+    height: fit-content;
+    border-radius: 2rem;
+    padding: 2.5rem 6rem;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 5rem rgb(225, 225, 225);
+
+    .divider {
+      width: 100%;
+      border-block-start: 2px solid $border-color-lighter;
+      position: relative;
+      margin-block: 2rem;
+
+      div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        background-color: $background-color;
+        padding-inline: 1rem;
+        font-size: 0.65rem;
+      }
+    }
+    .other-sign-in-methods {
+      display: block;
+
+      .google-login-btn {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border-radius: 1rem;
+        text-align: center;
+        border: 2px solid $border-color;
+        font-size: 0.9rem;
+        font-weight: 600;
+        background-color: $background-color;
+        @include flex-center;
+
+        div {
+          @include flex-center;
+
+          &::before {
+            padding-inline-end: 1rem;
+            display: inline-block;
+            content: "";
+            @include background-interface-icon(
+              "../../../../assets/icons/google.svg",
+              1.3rem
+            );
+          }
+        }
+      }
+    }
+  }
+}

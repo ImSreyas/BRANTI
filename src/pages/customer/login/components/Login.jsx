@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NewAccount from "./NewAccount";
+import GoToAccount from "pages/customer/common/GoToAccount";
 import OtherLoginMethods from "./OtherLoginMethods";
 import LoginForm from "./LoginForm";
 
@@ -15,7 +15,10 @@ const LoginComponent = () => {
           { password, setPassword },
         ]}
       />
-      <NewAccount />
+      <GoToAccount
+        content="Don't have an account? create one"
+        gotoLink="/signIn"
+      />
       <OtherLoginMethods />
     </div>
   );

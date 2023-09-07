@@ -15,7 +15,7 @@ const useEmailLogin = (
   const [error, setError] = useState(["", ""]);
   const dispatch = useDispatch();
 
-  const signIn = async () => {
+  const method = async () => {
     try {
       setIsLoader(true);
       await signInWithEmailAndPassword(auth, username, password, {
@@ -55,7 +55,7 @@ const useEmailLogin = (
     }
   };
 
-  return { signIn, states: [isLogedin, isLoader, error] };
+  return { method, states: [isLogedin, isLoader, error] };
 };
 
 export default useEmailLogin;

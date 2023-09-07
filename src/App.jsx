@@ -12,7 +12,7 @@ import CustomerLogin from "./pages/customer/login";
 import Offers from "./pages/customer/offers";
 import SellerLogin from "./pages/seller/login";
 import { loader } from "./pages/customer/login";
-import CustomerSignIn from "pages/customer/common/signin";
+import CustomerSignIn from "pages/customer/signin";
 
 function App() {
   const router = createBrowserRouter([
