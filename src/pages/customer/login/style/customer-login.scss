@@ -57,6 +57,10 @@
       background-color: $background-color;
       color: $text-color;
       border: 2px solid $border-color;
+
+      &:active{
+        background-color: darken($background-color, 4);
+      }
     }
     .google-login-btn {
       width: 100%;

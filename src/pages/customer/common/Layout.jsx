@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { default as CustomerNav } from "./Nav";
-import OptionCloser from "pages/common/OptionCloser";
+// import OptionCloser from "pages/common/OptionCloser";
 import Footer from "./Footer";
 
 const CustomerLayout = () => {
@@ -10,7 +10,7 @@ const CustomerLayout = () => {
       <CustomerNav />
       <Outlet />
       <Footer />
-      <OptionCloser />
+      {/* <OptionCloser /> */}
     </>
   );
 };

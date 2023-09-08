@@ -6,6 +6,7 @@ import LoginForm from "./LoginForm";
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [demoTrigger, setDemoTrigger] = useState(false);
 
   return (
     <div className="login-container">
@@ -13,13 +14,14 @@ const LoginComponent = () => {
         propStates={[
           { username, setUsername },
           { password, setPassword },
+          { demoTrigger, setDemoTrigger },
         ]}
       />
       <GoToAccount
         content="Don't have an account? create one"
         gotoLink="/signIn"
       />
-      <OtherLoginMethods />
+      <OtherLoginMethods propStates={{demoTrigger, setDemoTrigger}}/>
     </div>
   );
 };

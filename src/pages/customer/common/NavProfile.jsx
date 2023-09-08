@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import MoreOptions from "./MoreOptions";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +8,7 @@ import userIconUrl from "assets/icons/user.svg";
 const NavProfile = () => {
   const user = useSelector((state) => state.customer.value);
   const moreOptionsBtn = useSelector((state) => state.navOptionSlice);
+  const moreOptionBtnRef = useRef(null);
   const dispatch = useDispatch();
   const handleOptionClick = () => {
     dispatch(change());
@@ -37,12 +38,13 @@ const NavProfile = () => {
       )}
       <div className="divider"></div>
       <div
+        ref={moreOptionBtnRef}
         onClick={handleOptionClick}
         className={
           moreOptionsBtn ? "active more-options-icon" : "more-options-icon"
         }
       ></div>
-      <MoreOptions />
+      <MoreOptions reference={moreOptionBtnRef.current} />
     </div>
   );
 };

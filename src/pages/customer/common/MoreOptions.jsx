@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { change } from "store/navOptionSlice";
+import { change, disable } from "store/navOptionSlice";
 import { unsetUser } from "store/customerSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "config/firebase";
 
-const MoreOptions = () => {
+const MoreOptions = ({reference}) => {
   const moreOptionsBtn = useSelector((state) => state.navOptionSlice);
   const user = useSelector((state) => state.customer.value);
+  const optionRef = useRef(null);
   const dispatch = useDispatch();
 
   const handleOptionClick = () => {
@@ -17,23 +18,37 @@ const MoreOptions = () => {
   const logout = async () => {
     try {
       await signOut(auth);
-      console.log("signed out succesfully");
+      console.log("signed out successfully");
     } catch (err) {
       console.log(err);
     }
     dispatch(unsetUser());
     dispatch(change());
   };
+  const handleWindowClick = (e) => {
+    if (e.target !== optionRef.current && e.target !== reference) {
+      dispatch(disable());
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", handleWindowClick);
+
+    return () => {
+      window.removeEventListener("click", handleWindowClick);
+    };
+  }, );
 
   return (
     <div
+      ref={optionRef}
       className={
         moreOptionsBtn
           ? "active more-options-container"
           : "more-options-container"
       }
     >
-      {Object.keys(user).length != 0 ? (
+      {Object.keys(user).length !== 0 ? (
         <>
           <button onClick={logout} className="option-btn unselectable">
             Logout

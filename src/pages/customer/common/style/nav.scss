@@ -3,14 +3,18 @@
 nav {
   width: 100%;
   height: fit-content;
-  padding: 1rem 4rem;
+  padding: 1rem 4rem .2rem;
+  margin-block-end: .5rem;
   display: flex;
   align-items: center;
-  // position: sticky;
-  // top: -1rem;
-  // left: 0;
-  // z-index: 5;
+  position: sticky;
+  top: -1rem;
+  left: 0;
+  z-index: 5;
 
+  &.background{
+    background-color: $background-color;
+  }
   .logo {
     font-family: "Unica One", cursive;
     font-family: "Cinzel Decorative", cursive;

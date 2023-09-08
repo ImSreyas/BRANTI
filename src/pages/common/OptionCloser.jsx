@@ -12,9 +12,9 @@ const OptionCloser = () => {
 
   return (
     <div
-      className={
-        isActive ? "active option-closer" : "option-closer"
-      }
+      // className={
+      //   isActive ? "active option-closer" : "option-closer"
+      // }
       onClick={handleClick}
     ></div>
   );

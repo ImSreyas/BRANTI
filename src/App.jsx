@@ -13,6 +13,7 @@ import Offers from "./pages/customer/offers";
 import SellerLogin from "./pages/seller/login";
 import { loader } from "./pages/customer/login";
 import CustomerSignIn from "pages/customer/signin";
+import Orders from "pages/customer/orders";
 
 function App() {
   const router = createBrowserRouter([
@@ -52,6 +53,10 @@ function App() {
           path: "login",
           element: <CustomerLogin />,
           loader,
+        },
+        {
+          path: "orders",
+          element: <Orders />,
         },
         {
           path: "offers",

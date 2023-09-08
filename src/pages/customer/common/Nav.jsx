@@ -13,11 +13,22 @@ import MobileOptions from "./MobileOptions";
 
 
 const CustomerNav = () => {
+  const [backgroundTrigger, setBackgroundTrigger] = useState(false);
   const { width } = useWindowSize();
   const customer = useSelector((state) => state.customer.value);
 
+  useEffect(() => {
+    window.addEventListener("scroll", (e) => {
+      if(window.scrollY > 16){
+        setBackgroundTrigger(true);
+      } else {
+        setBackgroundTrigger(false);
+      }
+    })
+  }, [])
+
   return (
-    <nav>
+    <nav className={backgroundTrigger ? "background" : ""}>
       {1200 < width ? (
         <>
           <Logo />
