@@ -1,5 +1,5 @@
 import "./style/nav.scss";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Search from "./Search";
 import NavMain from "./NavMain";
@@ -7,7 +7,7 @@ import NavNotification from "./NavNotification";
 import NavWishlist from "./NavWishlist";
 import NavCart from "./NavCart";
 import NavProfile from "./NavProfile";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import useWindowSize from "hooks/useWidowSize";
 import MobileOptions from "./MobileOptions";
 
@@ -15,7 +15,7 @@ import MobileOptions from "./MobileOptions";
 const CustomerNav = () => {
   const [backgroundTrigger, setBackgroundTrigger] = useState(false);
   const { width } = useWindowSize();
-  const customer = useSelector((state) => state.customer.value);
+  // const customer = useSelector((state) => state.customer.value);
 
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
