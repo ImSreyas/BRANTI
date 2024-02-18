@@ -1,6 +1,6 @@
 <h1 align="center">👟 BRANTI</h1>
 <p>
-  ✨ BRANTI, A way to purchase Branded products from the official sellers 🛍️.Are you struggling to find orginal amoung so many fake products, Then BRANTI is the right place for you... We offeres orginal products from the official sellers.
+  ✨ BRANTI, A way to purchase Branded products from the official sellers 🛍️. Are you struggling to find orginal amoung so many fake products, Then BRANTI is the right place for you... We offeres orginal products from the official sellers.
 </p>
 
 <h2>
